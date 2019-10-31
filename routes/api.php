@@ -23,6 +23,8 @@ Route::get('/user',function(Request $request){
 })->middleware('auth:api');
 
 Route::get('/schedules','api\SheduleController@index');
+Route::post('/schedules/{id}/clap','api\SheduleController@clap');
+Route::get('/sponser','api\SponserController@index');
 
 
 

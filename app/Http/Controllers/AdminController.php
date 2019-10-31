@@ -22,7 +22,9 @@ class AdminController extends Controller
     public function search(Request $request)
     {
         $users = \App\User::where('username','like', $request->keyword.'%')
-                    ->orWhere('ticket_id','like',$request->keyword.'%')
+                    ->orWhereHas('ticket',function($query) use($request) {
+                        $query->where('ticket_id', 'like', $request->keyword );
+                    })
                     ->paginate(10);
         return view('admin.home',compact('users'));
     }

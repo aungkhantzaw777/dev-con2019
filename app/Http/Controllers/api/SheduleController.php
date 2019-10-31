@@ -39,6 +39,13 @@ class SheduleController extends Controller
             $schedule = Schedule::find($id);
             $schedule->clap_count += 1;
             $schedule->update();  
+
+            return response()->json([
+                'state' => true,
+                'status' => 200,
+                'message' => '',
+                'clap_count' => $schedule->clap_count
+            ]);
         } catch (Exception $e) {
             return response()->json([
                 'state'=> false,
