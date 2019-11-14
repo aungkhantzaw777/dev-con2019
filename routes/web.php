@@ -14,8 +14,7 @@
 Route::get('/', function () {
     return view('index');
 })->name('welcome');
-// pages route
-// Route::get('/about', 'PageController@about')->name('about');
+# pages
 Route::view('/about', 'pages.about')->name('about');
 Route::view('/blog', 'pages.blog')->name('blog');
 Route::view('/call-for-proposals', 'pages.call-for-proposals')->name('call-for-proposal');
@@ -26,6 +25,13 @@ Route::view('/register-your-ticket-process', 'pages.register-your-ticket-process
 Route::view('/register-your-ticket', 'pages.register-your-ticket');
 Route::get('/activate-your-ticket/{ticket_id}', 'AuthUserController@activateAccount');
 
+# password
+Route::get('/password/forget', 'ForgetPasswordController@forget')->name('password-forget');
+Route::post('/password/forget', 'ForgetPasswordController@postForget')->name('post-forget');
+Route::get('/password/reset/{auth}', 'ForgetPasswordController@reset')->name('reset');
+Route::post('/password/reset', 'ForgetPasswordController@postReset')->name('post-reset');
+
+# pages
 Route::view('/speakers', 'pages.speakers');
 Route::view('/sponsors', 'pages.sponsors');
 Route::view('/schedule', 'pages.schedule');
@@ -34,23 +40,21 @@ Route::post('activateAccount','AuthUserController@postActivate')->name('postActi
 Route::post('register','AuthUserController@postRegister')->name('postRegister');
 Route::view('/get-ticket', 'pages.get-ticket');
 
+
+# payment
+Route::view('payment', 'pages.payment');
+
 // Auth::routes();
 
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::resource('/ticket','TicketController')->middleware('auth');
-
-// Route::get('register','AuthUserController@register')->name('register');
 Route::post('activate','AuthUserController@activate')->name('activate');
 Route::get('activateAccount/{ticket_id}','AuthUserController@activateAccount')->name('activateAccount');
 
 Route::get('login','AuthUserController@login')->name('login');
 Route::get('logout','AuthUserController@logout')->name('clientLogout');
 Route::get('success','AuthUserController@success')->name('success');
-
-
 Route::post('login','AuthUserController@postLogin')->name('loginPost');
 
 

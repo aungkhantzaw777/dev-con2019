@@ -7,7 +7,7 @@ use App\{User,Ticket};
 use App\AuthenticatesUser;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterForm;
-use App\Mail\UserRegister;
+use App\Mail\{UserRegister,TicketActivate};
 use Faker\Factory as Faker;
 use Auth;
 use Illuminate\Validation\Rule;
@@ -65,34 +65,45 @@ class AuthUserController extends Controller
         $user['admin'] = false;
         $user['password'] = Hash::make($user['password']);
 
-
+        # convert data
         $ticket_id = $user['ticket_id'];
+        $user['study_place'] = implode(",",$user['study_place']);
+        $user['previous_year'] = implode(",",$user['previous_year']);
+        $user['about_devcon'] = implode(",",$user['about_devcon']);
         $user = User::create($user);
 
         Ticket::where('ticket_id',$ticket_id)->update(['user_id'=> $user->id]);
-        \Mail::to($user->email)->queue(new UserRegister($user));
+        \Mail::to($user->email)->queue(new TicketActivate($user));
         return redirect('/success');
     }
 
     public function postRegister(RegisterForm $request)
     {
-
+        
         $user = $this->request->all();
+        session()->put('user', $this->request->all());
+        return redirect('payment');
         $user['admin'] = false;
         $user['password'] = Hash::make($request['password']);
 
 
-        # validate if ticket is avaliable
-        $avaliable_ticket = Ticket::where('user_id', null)->where('sale_online', '1')->get();
-        if($avaliable_ticket->count() == 0) return  redirect('/register-your-ticket-process')->withErrors(['ticket_id' => 'Ticket is not avaliable in here!']);
-        # save to adatabase
-        $user = User::create($user);
-        $ticket_id = Ticket::where('user_id',null)->where('sale_online','1')->first()->ticket_id;
-        Ticket::where('ticket_id',$ticket_id)->update(['user_id'=> $user->id]);
+        
+        // $avaliable_ticket = Ticket::where('user_id', null)->where('sale_online', '1')->get();
+        // if($avaliable_ticket->count() == 0) return  redirect('/register-your-ticket-process')->withErrors(['ticket_id' => 'Ticket is not avaliable in here!']);
+
+        
+        // $user['study_place'] = implode(",",$user['study_place']);
+        // $user['previous_year'] = implode(",",$user['previous_year']);
+        // $user['about_devcon'] = implode(",",$user['about_devcon']);
+
+        
+        // $user = User::create($user);
+        // $ticket_id = Ticket::where('user_id',null)->where('sale_online','1')->first()->ticket_id;
+        // Ticket::where('ticket_id',$ticket_id)->update(['user_id'=> $user->id]);
 
 
-        \Mail::to($user->email)->queue(new UserRegister($user));
-        return redirect()->intended('/login');
+        // \Mail::to($user->email)->queue(new UserRegister($user));
+        // return redirect()->intended('/login');
     }
 
     public function success(){

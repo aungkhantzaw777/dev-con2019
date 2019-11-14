@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Profile
+@endsection
+
 @section('content')
     <!-- Breadcrumb Area Start -->
     <section class="breadcrumb-area bg-img bg-gradient-overlay jarallax" style="background-image: url(/img/bg-img/27.jpg);">

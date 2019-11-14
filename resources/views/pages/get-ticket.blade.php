@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('title')
+    Get Ticket
+@endsection
 
 @section('content')
     

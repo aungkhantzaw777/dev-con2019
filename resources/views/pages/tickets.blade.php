@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Ticket
+@endsection
+
 @section('content')
 
     <!-- Breadcrumb Area Start -->

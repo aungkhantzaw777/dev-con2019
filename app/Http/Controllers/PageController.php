@@ -10,4 +10,7 @@ class PageController extends Controller
     {
         return view('pages.about');
     }
+    public function payment(){
+        return view('pages.payment');
+    }
 }

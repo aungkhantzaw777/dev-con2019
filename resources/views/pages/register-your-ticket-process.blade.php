@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+
+
 @section('content')
 
 
@@ -418,7 +420,7 @@
                                         <div class="col-12">
                                             <div class="form-group row">
                                                 <label for="Development-Environment" class="col-md-5 col-form-label text-md-right">What is your Development Environment?</label>
-                                                <textarea class="col-md-6 @error('ide') is-invalid @enderror  form-control" name="dev_ide" rows="3">{{ old('ide') }}</textarea>
+                                                <textarea class="col-md-6 @error('ide') is-invalid @enderror  form-control" name="dev_ide" rows="3">{{ old('dev_ide') }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -431,12 +433,17 @@
                                             <div class="form-group row">
                                                 <label for="studied" class="col-md-5 col-form-label text-md-right">Place where you studied</label>
                                                 <div class="col-md-7 mt-20">
-                                                    <input type="checkbox" class="" name="study_place" value="Computer Universities"><span>&nbsp;Computer Universities</span><br>
-                                                    <input type="checkbox" class="" name="study_place" value="Technological Universities"><span>&nbsp;Technological Universities</span> <br>
-                                                    <input type="checkbox" class="" name="study_place" value="Universities of Information Technology"><span>&nbsp;Universities of Information Technology</span><br>
-                                                    <input type="checkbox" class="" name="study_place" value="Private Colleges/Universities"><span>&nbsp;Private  Colleges/Universities</span><br>
-                                                    <input type="checkbox" class="" name="study_place" value="Private Training Centers"><span>&nbsp;Private Training Centers</span><br>
-                                                    <input type="checkbox" class="" name="study_place" value="Oversea Colleges/Universities"><span>&nbsp;Oversea Colleges/Universities</span>
+                                                    <input type="checkbox" id="Computer_Universities" class="" name="study_place[]" value="Computer Universities"><label for="Computer_Universities">&nbsp;Computer Universities</label><br>
+
+                                                    <input type="checkbox" id="technological_university" class="" name="study_place[]" value="Technological Universities"><label for="technological_university">&nbsp;Technological Universities</label> <br>
+
+                                                    <input type="checkbox" id="university_of_it" class="" name="study_place[]" value="Universities of Information Technology"><label for="university_of_it">&nbsp;Universities of Information Technology</label><br>
+
+                                                    <input type="checkbox" id="private_college" class="" name="study_place[]" value="Private Colleges/Universities"><label for="private_college">&nbsp;Private  Colleges/Universities</label><br>
+
+                                                    <input type="checkbox" id="private_training" class="" name="study_place[]" value="Private Training Centers"><label for="private_training">&nbsp;Private Training Centers</label><br>
+
+                                                    <input type="checkbox" id="oversea_colleges" class="" name="study_place[]" value="Oversea Colleges/Universities"><label for="oversea_colleges">&nbsp;Oversea Colleges/Universities</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -444,12 +451,29 @@
                                             <div class="form-group row">
                                                 <label for="attendprevious" class="col-md-5 col-form-label text-md-right">Did you attend previous year DevCon?</label>
                                                 <div class="col-md-7 mt-20">
-                                                    <input type="checkbox" class="" name="previous_year" value="Not at all"><label><span>&nbsp;Not at all</span></label><br>
-                                                    <input type="checkbox" class="" name="previous_year" value="DevCon2012"><label for="DevCon2012"><span>&nbsp;DevCon2012</span></label><br>
-                                                    <input type="checkbox" class="" name="previous_year" value="DevCon2013"><label for="DevCon2013"><span>&nbsp;DevCon2013</span></label><br>
-                                                    <input type="checkbox" class="" name="previous_year" value="DevCon2014"><label for="DevCon2014"><span>&nbsp;DevCon2014</span></label><br>
-                                                    <input type="checkbox" class="" name="previous_year" value="DevCon2016"><label for="DevCon2016"><span>&nbsp;DevCon2016</span></label><br>
-                                                    <input type="checkbox" class="" name="previous_year" value="DevCon2017"><label for="DevCon2017"><span>&nbsp;DevCon2017</span></label>
+                                                    <input id="not_at_all" type="checkbox" class="" name="previous_year[]" value="Not at all">
+                                                    <label for="not_at_all">Not at all</label>
+                                                    <br>
+                                                    <input id="Devcon2012" type="checkbox" class="" name="previous_year[]" value="Devcon2012">
+                                                    <label for="Devcon2012">Devcon2012</label>
+                                                    <br>
+                                                    <input id="DevCon2013" type="checkbox" class="" name="previous_year[]" value="DevCon2013">
+                                                    <label for="DevCon2013">DevCon2013</label>
+                                                    <br>
+                                                    <input id="DevCon2014" type="checkbox" class="" name="previous_year[]" value="DevCon2014">
+                                                    <label for="DevCon2014">DevCon2014</label>
+                                                    <br>
+                                                    <input id="DevCon2016" type="checkbox" class="" name="previous_year[]" value="DevCon2016">
+                                                    <label for="DevCon2016">DevCon2016</label>
+                                                    <br>
+                                                    <input id="DevCon2017" type="checkbox" class="" name="previous_year[]" value="DevCon2017">
+                                                    <label for="DevCon2017">DevCon2017</label>
+                                                    <br>
+                                                    
+
+
+
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -457,12 +481,24 @@
                                             <div class="form-group row">
                                                 <label for="about" class="col-md-5 col-form-label text-md-right">How did you hear about DevCon Myanmar?</label>
                                                 <div class="col-md-7 mt-20">
-                                                    <input type="checkbox" class="" name="about_devcon" value="Search Engines"><span>&nbsp;Search Engines</span><br>
-                                                    <input type="checkbox" class="" name="about_devcon" value="Social Networking"><span>&nbsp;Social Networking</span><br>
-                                                    <input type="checkbox" class="" name="about_devcon" value="Offline/Online Publicating & News"><span>&nbsp;Offline/Online Publicating & News</span><br>
-                                                    <input type="checkbox" class="" name="about_devcon" value="Attend Previous Years"><span>&nbsp;Attend Previous Years</span><br>
-                                                    <input type="checkbox" class="" name="about_devcon" value="World of Mouth"><span>&nbsp;Word of Mouth</span><br>
-                                                    <input type="checkbox" class="" name="about_devcon" value="Others"><span>&nbsp;Others</span>
+                                                    <input id="search_enginnes" type="checkbox" class="" name="about_devcon[]" value="Search Engines">
+                                                    <label for="search_enginnes">Search Engines</label>
+                                                    <br>
+                                                    <input id="social_networking" type="checkbox" class="" name="about_devcon[]" value="Social Networking">
+                                                    <label for="social_networking">Social Networking</label>
+                                                    <br>
+                                                    <input id="news" type="checkbox" class="" name="about_devcon[]" value="Offline/Online Publicating & News">
+                                                    <label for="news">Offline/Online Publicating & News</label>
+                                                    <br>
+                                                    <input id="addend_previous_year" type="checkbox" class="" name="about_devcon[]" value="Attend Previous Years">
+                                                    <label for="addend_previous_year">Attend Previous Years</label>
+                                                    <br>
+                                                    <input id="word_of_month" type="checkbox" class="" name="about_devcon[]" value="Word of Mouth">
+                                                    <label for="word_of_month">Word of Mouth</label>
+                                                    <br>
+                                                    <input id="Others" type="checkbox" class="" name="about_devcon[]" value="Others">
+                                                    <label for="Others">Others</label>
+                                                    <br>
                                                 </div>
                                             </div>
                                         </div>

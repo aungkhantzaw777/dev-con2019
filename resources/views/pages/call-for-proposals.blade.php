@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Call for proposal
+@endsection
+
 @section('content')
     
 

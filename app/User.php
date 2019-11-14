@@ -29,6 +29,7 @@ class User extends Authenticatable
         'gender' ,
         'password',
         'api_token',
+        'password_code',
         'township',
         'location' ,
         'employee_type' ,
@@ -64,7 +65,7 @@ class User extends Authenticatable
 
     public static function byEmail($email)
     {
-        return static::where('email',$email)->first();
+        return static::where('email',$email)->firstorfail();
     }
     // public static function byTicket($ticket)
     // {

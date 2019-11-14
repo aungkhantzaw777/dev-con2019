@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Speaker
+@endsection
+
 @section('content')
     
 

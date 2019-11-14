@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Previous Year
+@endsection
+
 @section('content')
     
 

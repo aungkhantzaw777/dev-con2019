@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Login
+@endsection
+
 @section('content')
     
 
@@ -58,7 +62,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                            <a href="">forget password?</a>
+                                            <a href="{{ url('/password/forget') }}">forget password?</a>
                                              </div>
                                         </div>
                                     </div>
