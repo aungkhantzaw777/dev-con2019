@@ -72,18 +72,12 @@ Payment Transaction
             </div>
             <div class="col-md-12">
                 <span class="payment-heading">Bank Channel</span>
-                <form action="{{ config('laravel-2c2p.redirect_access_url') }}"  method="POST">
-                    {!! \Payment2C2P::redirectRequest([
-                            'payment_description' => '2 room 2 night',
-                            'order_id' => 'QWERZX1234',
-                            'invoice_no' => 'ZXCQW123',
-                            'currency' => '840',
-                            'amount' => '1000',
-                            'customer_email' => 'email@email.com',
-                            'result_url_1' => 'http://127.0.0.1:8888/payment/complete'
-                    ]) !!}
-                    <button type="submit">Submit</button>
-                </form>
+                
+            </div>
+            <div class="col-md-3">
+                <div class="img-agent-wrap">
+                    <img class="W-100" src="{{ asset('img/payment/aya_bank.png') }}" alt="Aya Bank">
+                </div>
             </div>
             
             
