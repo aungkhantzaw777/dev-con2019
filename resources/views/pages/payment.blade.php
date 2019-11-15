@@ -74,9 +74,19 @@ Payment Transaction
                 <span class="payment-heading">Bank Channel</span>
                 
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2 col-xs-4 col-4">
                 <div class="img-agent-wrap">
                     <img class="W-100" src="{{ asset('img/payment/aya_bank.png') }}" alt="Aya Bank">
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-4 col-4">
+                <div class="img-agent-wrap">
+                    <img class="W-100" src="{{ asset('img/payment/cb_bank.png') }}" alt="CB Bank">
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-4 col-4">
+                <div class="img-agent-wrap">
+                    <img class="W-100" src="{{ asset('img/payment/kbz_bank.png') }}" alt="KBZ Bank">
                 </div>
             </div>
             

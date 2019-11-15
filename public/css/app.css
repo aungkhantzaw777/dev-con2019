@@ -20,8 +20,9 @@
 
 .payment-wrap .img-agent-wrap {
   height: 119px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
+}
+
+.payment-wrap .img-agent-wrap img {
+  height: auto;
 }
 
