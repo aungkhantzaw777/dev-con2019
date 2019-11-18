@@ -17,6 +17,6 @@ class Cors
     {
         return $next($request)
         ->header('Access-Control-Allow-Origin','*')
-        ->header('Access-Control-Allow-Header','*');
+        ->header('Access-Control-Allow-Headers','*');
     }
 }

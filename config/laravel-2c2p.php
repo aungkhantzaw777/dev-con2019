@@ -13,8 +13,8 @@ return [
     'access_url'        => 'https://demo2.2c2p.com/2C2PFrontEnd/SecurePayment/PaymentAuth.aspx',
     'secure_pay_script' => 'https://demo2.2c2p.com/2C2PFrontEnd/SecurePayment/api/my2c2p.1.6.9.min.js',
 
-    'currency_code' => 702, // Ref: http://en.wikipedia.org/wiki/ISO_4217
-    'country_code'  => 'MMR',
+    'CurrencyCode' => 702, // Ref: http://en.wikipedia.org/wiki/ISO_4217
+    'country_code'  => 'MMK*',
 
     '123_merchant_id'       => 'merchant@smarthotel.com',
     '123_api_secret_key'    => 'M5WCTP59J544IRRUBTJE0Q7Z2PAJX3CT',

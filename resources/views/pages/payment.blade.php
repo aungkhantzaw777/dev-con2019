@@ -46,7 +46,7 @@ Payment Transaction
                 </a>
                 
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-4  text-center">
                 <a href="/home">
                     <div class="card p-3 cursor-pointer">
                         <div class="card-body">
@@ -58,7 +58,7 @@ Payment Transaction
                     </div>
                 </a>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-4  text-center">
                 <a href="#">
                     <div class="card cursor-pointer p-3">
                         <div class="card-body">
@@ -70,6 +70,10 @@ Payment Transaction
                     </div>
                 </a>
             </div>
+
+
+        </div>
+        <div class="row mb-3">
             <div class="col-md-12">
                 <span class="payment-heading">Bank Channel</span>
                 
@@ -89,9 +93,36 @@ Payment Transaction
                     <img class="W-100" src="{{ asset('img/payment/kbz_bank.png') }}" alt="KBZ Bank">
                 </div>
             </div>
-            
-            
         </div>
+
+        <div class="row">
+            {{-- <div class="col-md-12">
+                <span class="payment-heading">Counter Agent</span>
+            </div> --}}
+            <div class="col-md-2 col-xs-4 col-3">
+                <form id="myform" method="post" action="{{$payment_url}}">
+                    <input type="hidden" name="version" value="{{$version}}"/>
+                    <input type="hidden" name="merchant_id" value="{{$merchant_id}}"/>
+                    <input type="hidden" name="currency" value="{{$currency}}"/>
+                    <input type="hidden" name="result_url_1" value="{{$result_url_1}}"/>
+                    <input type="text" name="hash_value" value="{{$hash_value}}"/>
+                PRODUCT INFO : <input type="text" name="payment_description" value="{{$payment_description}}n"  readonly/><br/>
+                    ORDER NO : <input type="text" name="order_id" value="{{$order_id}}"  readonly/><br/>
+                    AMOUNT: <input type="text" name="amount" value="{{$amount}}" readonly/><br/>
+                    <input type="submit" name="submit" value="Confirm" />
+                </form>  
+                
+                <script type="text/javascript" src="{{ config('laravel-2c2p.secure_pay_script') }}"></script>
+                <script type="text/javascript">
+                    My2c2p.onSubmitForm("2c2p-payment-form", function(errCode,errDesc){
+                        if(errCode!=0){ 
+                            alert(errDesc);
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+
     </div>
 </section>
 <!-- Login Area End -->
