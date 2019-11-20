@@ -43,6 +43,7 @@ Route::view('/get-ticket', 'pages.get-ticket');
 
 # payment
 Route::get('payment', 'PaymentController@payment123')->name('payment');
+Route::post('payment', 'PaymentController@postPayment')->name('postPayment');
 Route::post('payment/123', 'PaymentController@servies123')->name('payment-123');
 
 // Auth::routes();

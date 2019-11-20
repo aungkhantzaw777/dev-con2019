@@ -19,14 +19,33 @@ class PaymentController extends Controller
         \View::share([
             'merchant_id' => "104104000000326",
             'version' => '8.5',
-            'currency' => '702', 
+            'currency' => '401', 
             'result_url_1' => 'http://localhost:8000',
             'hash_value' => $this->hash_value(),
             'payment_description' => 'Early Birth Ticket',
             'order_id' => '2393223',
-            'amount' => 000000002500,
+            'amount' => 10000,
             'payment_url' => 'https://demo2.2c2p.com/2C2PFrontEnd/RedirectV3/payment'
         ]);
+        
+    }
+
+    public function postPayment(Request $request) 
+    {
+        $payload = \Payment2C2P::paymentRequest([
+            'desc' => '1 room for 2 nights',
+            'uniqueTransactionCode' => "Invoice".time(),
+            'amt' => '1000000',
+            'currencyCode' => '401',
+            'cardholderName' => 'Card holder Name',
+            'cardholderEmail' => 'email@emailcom',
+            'panCountry' => 'MM',
+            'encCardData' => $request->input('encryptedCardInfo'), // Retrieve encrypted credit card data 
+            'userDefined1' => 'userDefined1',
+            'userDefined2' => 'userDefined2'
+        ]);
+
+        return view('pages.pay',compact('payload'));
     }
     
     public function payment123()
