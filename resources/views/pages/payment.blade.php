@@ -106,15 +106,15 @@ Payment Transaction
 	$secret_key = "4DA01BF6B855216C25CE583C599EE605B9CF913EB0CC28214D5D5D175559E6FE";	//Get SecretKey from 2C2P PGW Dashboard
 	
 	//Transaction information
-	$payment_description  = '2 days 1 night hotel room';
+	$payment_description  = 'Ticket';
 	$order_id  = time();
-	$currency = "702";
-	$amount  = '000000002500';
+	$currency = '104';
+	$amount  = '000000010000';
 	
 	//Request information
 	$version = "8.5";	
 	$payment_url = "https://demo2.2c2p.com/2C2PFrontEnd/RedirectV3/payment";
-	$result_url_1 = "http://localhost:70/payment/result.php";
+	$result_url_1 = "http://localhost:8000/payment/result";
 	
 	//Construct signature string
 	$params = $version.$merchant_id.$payment_description.$order_id.$currency.$amount.$result_url_1;

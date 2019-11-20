@@ -40,6 +40,10 @@ Route::post('activateAccount','AuthUserController@postActivate')->name('postActi
 Route::post('register','AuthUserController@postRegister')->name('postRegister');
 Route::view('/get-ticket', 'pages.get-ticket');
 
+Route::get('/payment/result', function() {
+    return 'ok';
+});
+
 
 # payment
 Route::get('payment', 'PaymentController@payment123')->name('payment');
