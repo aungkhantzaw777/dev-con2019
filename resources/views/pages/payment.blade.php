@@ -70,8 +70,8 @@ Payment Transaction
                     </div>
                 </a>
             </div>
-
-
+            
+            
         </div>
         <div class="row mb-3">
             <div class="col-md-12">
@@ -94,57 +94,26 @@ Payment Transaction
                 </div>
             </div>
         </div>
-
+        
         <div class="row">
-            {{-- <div class="col-md-12">
-                <span class="payment-heading">Counter Agent</span>
-            </div> --}}
-            <div class="col-md-2 col-xs-4 col-3">
-                    <?php 
-	//Merchant's account information
-	$merchant_id = "104104000000326";			//Get MerchantID when opening account with 2C2P
-	$secret_key = "4DA01BF6B855216C25CE583C599EE605B9CF913EB0CC28214D5D5D175559E6FE";	//Get SecretKey from 2C2P PGW Dashboard
-	
-	//Transaction information
-	$payment_description  = 'Ticket';
-	$order_id  = time();
-	$currency = '104';
-	$amount  = '000000010000';
-	
-	//Request information
-	$version = "8.5";	
-	$payment_url = "https://demo2.2c2p.com/2C2PFrontEnd/RedirectV3/payment";
-	$result_url_1 = "http://localhost:8000/payment/result";
-	
-	//Construct signature string
-	$params = $version.$merchant_id.$payment_description.$order_id.$currency.$amount.$result_url_1;
-	$hash_value = hash_hmac('sha256',$params, $secret_key,false);	//Compute hash value
-	
-	echo 'Payment information:';
-	echo '<html> 
-	<body>
-	<form id="myform" method="post" action="'.$payment_url.'">
-		<input type="hidden" name="version" value="'.$version.'"/>
-		<input type="hidden" name="merchant_id" value="'.$merchant_id.'"/>
-		<input type="hidden" name="currency" value="'.$currency.'"/>
-		<input type="hidden" name="result_url_1" value="'.$result_url_1.'"/>
-		<input type="hidden" name="hash_value" value="'.$hash_value.'"/>
-    PRODUCT INFO : <input type="text" name="payment_description" value="'.$payment_description.'"  readonly/><br/>
-		ORDER NO : <input type="text" name="order_id" value="'.$order_id.'"  readonly/><br/>
-		AMOUNT: <input type="text" name="amount" value="'.$amount.'" readonly/><br/>
-		<input type="submit" name="submit" value="Confirm" />
-	</form>  
-	
-	<script type="text/javascript">
-		document.forms.myform.submit();
-	</script>
-	</body>
-	</html>';	?>
-                
+            
+            <div class="col-12">
+                <h1 class="text-center payment-heading">10000MMK</h1>
+                <form id="myform" method="post" action="{{$payment_url}}">
+                        <input type="hidden" name="version" value="{{$version}}"/>
+                        <input type="hidden" name="merchant_id" value="{{$merchant_id}}"/>
+                        <input type="hidden" name="currency" value="{{$currency}}"/>
+                        <input type="hidden" name="result_url_1" value="{{$result_url_1}}"/>
+                        <input type="hidden" name="hash_value" value="{{$hash_value}}"/>
+                    PRODUCT INFO : <input type="text" name="payment_description" value="{{$payment_description}}"  readonly/><br/>
+                        ORDER NO : <input type="text" name="order_id" value="{{$order_id}}"  readonly/><br/>
+                        AMOUNT: <input type="text" name="amount" value="{{$amount}}" readonly/><br/>
+                        <input type="submit" name="submit" value="Confirm" />
+                    </form>  
                 
             </div>
         </div>
-
+        
     </div>
 </section>
 <!-- Login Area End -->

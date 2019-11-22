@@ -40,15 +40,12 @@ Route::post('activateAccount','AuthUserController@postActivate')->name('postActi
 Route::post('register','AuthUserController@postRegister')->name('postRegister');
 Route::view('/get-ticket', 'pages.get-ticket');
 
-Route::get('/payment/result', function() {
-    return 'ok';
-});
+
 
 
 # payment
-Route::get('payment', 'PaymentController@payment123')->name('payment');
-Route::post('payment', 'PaymentController@postPayment')->name('postPayment');
-Route::post('payment/123', 'PaymentController@servies123')->name('payment-123');
+Route::get('payment', 'PaymentController@payment')->name('payment');
+Route::post('/payment/result', 'PaymentController@paymentResponse')->name('payment-response');
 
 // Auth::routes();
 
